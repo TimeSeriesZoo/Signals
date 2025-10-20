@@ -1,5 +1,6 @@
 """Builder functions for FFT visualizers."""
 
+import numpy as np
 import matplotlib.pyplot as plt
 
 from vcode.plts.fft import plot_sines, plot_recomb, plot_powers, plot_phases
