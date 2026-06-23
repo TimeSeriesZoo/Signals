@@ -6,9 +6,8 @@ import matplotlib.pyplot as plt
 from neurodsp.spectral import compute_spectrum, trim_spectrum
 from neurodsp.utils.yielders import step_over_time
 
-from vcode.plts.timeseries import plot_timeseries, plot_spectra
-
 # Import sigviz code
+from sigviz.plts import plot_timeseries, plot_spectra
 from sigviz.gif import clear_output, animate_plot
 
 ###################################################################################################

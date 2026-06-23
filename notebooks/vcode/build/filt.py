@@ -7,15 +7,16 @@ from neurodsp.filt.fir import design_fir_filter, apply_fir_filter
 from neurodsp.filt.utils import compute_frequency_response
 from neurodsp.plts.filt import plot_frequency_response, plot_impulse_response
 
-from vcode.plts.base import plot_data
-from vcode.plts.settings import TEXT_FONTDICT
-
 # Import sigviz code
+from sigviz.plts import plot_data
 from sigviz.gif import clear_output, animate_plot
 from sigviz.utils import incrementer
 
 ###################################################################################################
 ###################################################################################################
+
+TEXT_FONTDICT = {'fontsize' : 15, 'fontname' : 'Verdana',
+                 'ha' : 'center', 'linespacing' : 1.5}
 
 def passer(*args, **kwargs):
     """Helper function to pass through for custom styling."""

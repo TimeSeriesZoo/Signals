@@ -1,17 +1,19 @@
 """Builder functions for FFT visualizers."""
 
 import cmath
+from itertools import cycle
 
 import numpy as np
 import matplotlib.pyplot as plt
-
-from vcode.plts.settings import COLORS_LST
 
 # Import sigviz code
 from sigviz.gif import clear_output, animate_plot
 
 ###################################################################################################
 ###################################################################################################
+
+COLORS_DEF = cycle(plt.rcParams['axes.prop_cycle'].by_key()['color'])
+COLORS_LST = [next(COLORS_DEF) for ind in range(1000)]
 
 ## MEASURES
 
