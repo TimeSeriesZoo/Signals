@@ -6,7 +6,9 @@ import matplotlib.pyplot as plt
 from neurodsp.utils import create_samples
 
 from vcode.plts.convolution import plot_sig_kernel, plot_convolution
-from vcode.plts.utils import clear_output, animate_plot
+
+# Import sigviz code
+from sigviz.gif import clear_output, animate_plot
 
 ###################################################################################################
 ###################################################################################################
@@ -17,16 +19,13 @@ def make_axes_convolution():
     """Make axes for combined plot."""
 
     fig = plt.figure()
-    #ax1 = fig.add_axes([0.0, 0.5, 1.7, 0.45])
-    #ax2 = fig.add_axes([0.0, 0.0, 1.7, 0.45])
-
     ax1 = fig.add_axes([0.0, 0.3, 1.85, 0.25])
     ax2 = fig.add_axes([0.0, 0.0, 1.85, 0.25])
 
     return fig, [ax1, ax2]
 
 
-### BUILDERS
+### BUILDERS: COMPONENTS
 
 def build_kernel_slide(sig, kernel, sleep=0.025):
     """Build kernel slide plot for convolution visualizer."""
@@ -56,6 +55,8 @@ def build_convolution_output(sig, kernel, sleep=0.025):
 
         animate_plot(plt.gcf(), False, ind, sleep=sleep)
 
+
+### BUILDERS: COMBINED
 
 def build_convolution(sig, kernel,
                       sleep=0.025, save=False, label='conv', **kwargs):

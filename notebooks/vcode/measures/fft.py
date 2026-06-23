@@ -7,16 +7,28 @@ import numpy as np
 ###################################################################################################
 ###################################################################################################
 
-def decompose_fft(data, threshold=0., max_n_waves=np.inf):
+def decompose_fft(sig, threshold=0., max_n_waves=np.inf):
     """Decompose the components of an FFT.
 
     Parameters
     ----------
-    data, threshold, max_n_waves
+    sig : 1d array
+        Signal to compute FFT from.
+    threshold : float, optional, default: 0.
+        Minimum power threshold to keep a sine wave.
+    max_n_waves : int, optional, default: inf
+        Maximum number of sine waves to compute.
 
     Returns
     -------
-    sines, freqs, phases, powers
+    sines : 2d array
+        Component sine waves.
+    freqs : 1d array
+        Frequency values for each sine wave.
+    phases : 1d array
+        Phase values for each sine wave.
+    powers : 1d array
+        Power values for each sine wave.
 
     Notes
     -----
@@ -24,8 +36,8 @@ def decompose_fft(data, threshold=0., max_n_waves=np.inf):
     https://stackoverflow.com/questions/59725933/plot-fft-as-a-set-of-sine-waves-in-python
     """
 
-    fft3 = np.fft.fft(data)
-    xs = np.arange(0, 10, 10 / len(data))
+    fft3 = np.fft.fft(sig)
+    xs = np.arange(0, 10, 10 / len(sig))
     freqs = np.fft.fftfreq(len(xs), .01)
 
     sines = np.empty([0, len(xs)])
@@ -51,4 +63,4 @@ def decompose_fft(data, threshold=0., max_n_waves=np.inf):
             phases.append(phase)
             powers.append(power)
 
-    return sines, freqs, phases, powers
+    return sines, freqs, np.array(phases), np.array(powers)

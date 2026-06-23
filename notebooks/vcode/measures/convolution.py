@@ -8,7 +8,20 @@ from neurodsp.utils import create_samples
 ###################################################################################################
 
 def compute_convolution(sig, kernel):
-    """Custom function for computing convolution."""
+    """Custom function for computing convolution.
+
+    Parameters
+    ----------
+    sig : 1d array
+        Signal.
+    kernel : 1d array
+        Kernel to convolve.
+
+    Returns
+    -------
+    convolved : 1d array
+        Output signal.
+    """
 
     samps = create_samples(len(kernel))
     convolved = np.ones(len(sig)) * np.nan

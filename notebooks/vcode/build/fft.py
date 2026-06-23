@@ -4,10 +4,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from vcode.plts.fft import plot_sines, plot_recomb, plot_powers, plot_phases
-from vcode.plts.utils import clear_output, animate_plot
+
+# Import sigviz code
+from sigviz.gif import clear_output, animate_plot
 
 ###################################################################################################
 ###################################################################################################
+
+## MEASURES
+
+...
 
 ### AXES
 
@@ -42,7 +48,11 @@ def make_axes_fft():
 
     return fig, [ax1, ax2, ax3, ax4]
 
-### BUILDERS
+## PLOTS
+
+...
+
+### BUILDERS: COMPONENTS
 
 def build_sines(sines, n_build=np.inf, sleep=0.05):
     """Build the sine wave plot (animated)."""
@@ -111,6 +121,8 @@ def build_sigs(sines, data, n_build=np.inf, sleep=0.05):
         plot_recomb(sines[0:ind, :], data, ax=axes[1])
         animate_plot(fig, False, ind, sleep=sleep)
 
+
+### BUILDERS: COMBINED
 
 def build_fft(sines, data, freqs, phases, powers, n_build=np.inf,
               sleep=0.05, save=False, label='fft'):

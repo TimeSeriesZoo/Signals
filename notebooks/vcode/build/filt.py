@@ -7,13 +7,20 @@ from neurodsp.filt.fir import design_fir_filter, apply_fir_filter
 from neurodsp.filt.utils import compute_frequency_response
 from neurodsp.plts.filt import plot_frequency_response, plot_impulse_response
 
-from vcode.utils.data import incrementer
 from vcode.plts.base import plot_data
 from vcode.plts.filt import add_filter_text
-from vcode.plts.utils import clear_output, animate_plot, passer
+
+# Import sigviz code
+from sigviz.gif import clear_output, animate_plot
+from sigviz.utils import incrementer
 
 ###################################################################################################
 ###################################################################################################
+
+def passer(*args, **kwargs):
+    """Helper function to pass through for custom styling."""
+    pass
+
 
 ### AXES
 
