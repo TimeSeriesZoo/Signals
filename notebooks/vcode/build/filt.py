@@ -8,7 +8,7 @@ from neurodsp.filt.utils import compute_frequency_response
 from neurodsp.plts.filt import plot_frequency_response, plot_impulse_response
 
 from vcode.plts.base import plot_data
-from vcode.plts.filt import add_filter_text
+from vcode.plts.settings import TEXT_FONTDICT
 
 # Import sigviz code
 from sigviz.gif import clear_output, animate_plot
@@ -50,6 +50,19 @@ def make_axes_filter_output():
     ax4.axis('off')
 
     return fig, [ax1, ax2, ax3, ax4]
+
+
+### PLOTS
+
+def add_filter_text(ax, f_type=None, f_range=None, n_cycles=None):
+    """Helper function to add text labels to filter properties plot."""
+
+    ax.text(0.1, 0.85, "FIR\nFilter", TEXT_FONTDICT)
+    ax.text(0.1, 0.55, "type:\n{}".format(f_type), TEXT_FONTDICT)
+    ax.text(0.1, 0.25, "f_range:\n{}".format(str(f_range)), TEXT_FONTDICT)
+
+    if n_cycles is not None:
+        ax.text(0.1, 0.0, "n_cycles:\n{}".format(str(n_cycles)), TEXT_FONTDICT)
 
 
 ### BUILDERS
